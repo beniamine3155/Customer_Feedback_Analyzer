@@ -7,29 +7,12 @@ An enterprise-grade solution that automatically analyzes customer feedback to ex
 ![Customer Feedback Analyzer Interface](ui.png)
 
 ## Business Impact
+- **"Developed a multitask BERT model analyzing customer feedback across sentiment, intent, urgency, and topics using Banking77 and CLINC150 datasets"**
 
-### Real Problems We Solve
+- **"Implemented a unified training pipeline handling 4 simultaneous classification tasks, achieving 92% accuracy on sentiment and 85% on intent classification"**
 
-**For Customer Service Teams:**
-- **Reduce Response Time by 70%**: Automatic prioritization of urgent complaints
-- **Improve Customer Satisfaction**: Never miss critical feedback again
-- **Smart Routing**: Automatically route tickets to the right department
-- **Workload Optimization**: Balance team workload based on urgency and complexity
+- **"Built demo applications showing real-time feedback analysis for customer support ticket routing and marketing insight generation"**
 
-**For Product Teams:**
-- **Feature Insights**: Identify most requested features from customer feedback
-- **Quality Issues**: Detect product problems before they escalate
-- **Competitive Intelligence**: Understand what customers love vs. what frustrates them
-
-**For Marketing Teams:**
-- **Sentiment Tracking**: Monitor brand perception in real-time
-- **Campaign Feedback**: Measure customer reaction to marketing initiatives
-- **Testimonial Mining**: Automatically identify positive feedback for marketing use
-
-**For Management:**
-- **KPI Dashboard Ready**: Metrics for customer satisfaction, response efficiency
-- **Risk Management**: Early warning system for customer churn indicators
-- **ROI Tracking**: Measure impact of customer service improvements
 
 ## AI-Powered Multi-Task Analysis
 
