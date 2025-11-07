@@ -8,4 +8,8 @@ matplotlib
 seaborn
 tqdm
 ipykernel
+fastapi
+uvicorn
+python-multipart
+pydantic
 -e .

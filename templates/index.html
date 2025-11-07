@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="main-card">
+    <!-- Header -->
+    <div class="header-section">
+        <h1 class="app-title">Customer Feedback Analyzer</h1>
+        <p class="app-subtitle">AI-powered analysis of customer feedback</p>
+    </div>
+
+    <!-- Input Section -->
+    <div class="input-section">
+        <h2 class="section-title">Analyze Feedback</h2>
+        <form method="post" action="/analyze">
+            <textarea 
+                class="feedback-input" 
+                name="feedback_text" 
+                placeholder="Enter your customer feedback here...&#10;Example: The application is constantly crashing when processing payments, this needs immediate attention."
+                required
+            >{{ feedback_text if feedback_text }}</textarea>
+            
+            <button type="submit" class="analyze-button">
+                {% if analyzing %}
+                    Analyzing Feedback...
+                {% else %}
+                    Analyze Feedback
+                {% endif %}
+            </button>
+        </form>
+
+        {% if error %}
+        <div class="error-message">
+            {{ error }}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

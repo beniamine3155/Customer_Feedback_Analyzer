@@ -49,6 +49,6 @@ class ModelTester:
             raise CustomException(f"Model testing failed: {str(e)}")
 
 # For quick testing
-if __name__ == "__main__":
-    tester = ModelTester()
-    tester.test_model()
+# if __name__ == "__main__":
+#     tester = ModelTester()
+#     tester.test_model()

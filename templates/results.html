@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="main-card">
+    <!-- Header -->
+    <div class="header-section">
+        <h1 class="app-title">Analysis Results</h1>
+        <p class="app-subtitle">Feedback analysis completed</p>
+    </div>
+
+    <!-- Results Section -->
+    <div class="results-section">
+        <!-- Original Feedback -->
+        <div style="margin-bottom: 30px;">
+            <h2 class="section-title">Original Feedback</h2>
+            <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border-left: 4px solid #2563eb;">
+                <p style="font-size: 1.1rem; line-height: 1.6; color: #1f2937; margin: 0;">{{ result.text }}</p>
+            </div>
+        </div>
+
+        <!-- Analysis Results -->
+        <h2 class="section-title">Analysis Results</h2>
+        <div class="results-grid">
+            <!-- Sentiment -->
+            <div class="result-item sentiment-{{ result.sentiment.label }}">
+                <div class="result-label">Sentiment</div>
+                <div class="result-value">{{ result.sentiment.label.title() }}</div>
+                <div class="result-confidence">Confidence: {{ (result.sentiment.confidence * 100)|round(1) }}%</div>
+            </div>
+
+            <!-- Intent -->
+            <div class="result-item">
+                <div class="result-label">Intent</div>
+                <div class="result-value">{{ result.intent.label.title() }}</div>
+                <div class="result-confidence">Confidence: {{ (result.intent.confidence * 100)|round(1) }}%</div>
+            </div>
+
+            <!-- Urgency -->
+            <div class="result-item urgency-{{ result.urgency.label }}">
+                <div class="result-label">Urgency</div>
+                <div class="result-value">{{ result.urgency.label.title() }}</div>
+                <div class="result-confidence">Confidence: {{ (result.urgency.confidence * 100)|round(1) }}%</div>
+            </div>
+
+            <!-- Topic -->
+            <div class="result-item">
+                <div class="result-label">Topic</div>
+                <div class="result-value">{{ result.topic.label.title() }}</div>
+                <div class="result-confidence">Confidence: {{ (result.topic.confidence * 100)|round(1) }}%</div>
+            </div>
+        </div>
+
+        <!-- Recommendations -->
+        <div class="recommendations">
+            <h3 class="recommendations-title">Recommended Actions</h3>
+            <ul class="recommendations-list">
+                {% for recommendation in recommendations %}
+                <li>{{ recommendation }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Back Button -->
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="/" class="back-button">Analyze Another Feedback</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
