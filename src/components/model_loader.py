@@ -114,3 +114,49 @@ class ModelLoader:
         except Exception as e:
             logger.error(f"Error loading model: {e}")
             raise CustomException(f"Failed to load model: {e}")
+        
+    
+
+    def predict(self, text):
+        """Make prediction on input text"""
+        try:
+            if self.analyzer is None:
+                self.load_model()
+            
+            model = self.analyzer['model']
+            tokenizer = self.analyzer['tokenizer']
+            label_decoders = self.analyzer['label_decoders']
+            
+            # Tokenize input
+            inputs = tokenizer(
+                text, 
+                padding=True, 
+                truncation=True, 
+                max_length=128, 
+                return_tensors="pt", 
+                return_token_type_ids=False
+            )
+            
+            # Make prediction
+            with torch.no_grad():
+                outputs = model(
+                    input_ids=inputs['input_ids'],
+                    attention_mask=inputs['attention_mask']
+                )
+            
+            # Process results
+            result = {'text': text}
+            for task, logits in outputs.items():
+                probs = torch.softmax(logits, dim=1)
+                confidence, pred_idx = torch.max(probs, 1)
+                result[task] = {
+                    'label': label_decoders[task][pred_idx.item()],
+                    'confidence': round(confidence.item(), 3)
+                }
+            
+            logger.info(f"Prediction made for text: {text[:50]}...")
+            return result
+            
+        except Exception as e:
+            logger.error(f"Error making prediction: {str(e)}")
+            raise CustomException(f"Prediction failed: {str(e)}")
