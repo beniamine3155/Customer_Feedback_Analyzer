@@ -4,6 +4,9 @@
 
 An enterprise-grade solution that automatically analyzes customer feedback to extract actionable business insights. Built with state-of-the-art BERT neural networks for multi-dimensional feedback understanding.
 
+## **Live Demo**
+**Try the application now:** [https://huggingface.co/spaces/beniamine3155/customer-feedback-analyzer](https://huggingface.co/spaces/beniamine3155/customer-feedback-analyzer)
+
 ![Customer Feedback Analyzer Interface](ui.png)
 
 ## Business Impact
